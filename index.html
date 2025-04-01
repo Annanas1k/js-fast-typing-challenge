@@ -13,20 +13,28 @@
     <div id="navbar-container"></div>
 
     <!-- Conținutul principal al paginii -->
+    <header>
+        <h1>Test de Viteză la Tastatură</h1>
+    </header>
+
     <main>
         <section id="intro">
-            <h1>Test de Viteză la Tastare</h1>
-            <p>Verifică-ți viteza de tastare. Scrie cât mai repede posibil textul de mai jos și află câte cuvinte poți tasta pe minut!</p>
+            <p>Scrie textul de mai jos cât mai repede și mai precis posibil. Cronometrul începe când apeși pe butonul <strong>„Start”</strong>.</p>
         </section>
 
         <section id="test">
-            <p id="text-to-type">Acesta este un text de test. Scrie-l cât mai repede posibil pentru a-ți testa viteza de tastare!</p>
-            <textarea id="input-text" placeholder="Începe să scrii aici..." rows="4" cols="50"></textarea>
-            <div id="timer">Timp: 0s</div>
-            <button id="start-button">Începe Testul</button>
+            <div id="text-to-type">Programarea este arta de a comunica cu un computer. Încearcă să tastezi acest text fără erori și cât mai rapid posibil!</div>
+            <textarea id="input-text" placeholder="Tastează aici..." rows="5"></textarea>
+            
+            <div id="controls">
+                <div id="timer">⏱️ Timp: 0s</div>
+                <button id="start-button" class="btn-style">Start</button>
+                <button id="restart-button" class="btn-style">Restart</button>
+                <div id="words-per-minute">🚀 Viteză: 0 WPM</div>
+            </div>
+            
+            <div id="errors">❌ Erori: 0</div>
             <div id="result"></div>
-            <div id="errors">Erori: 0</div>
-            <div id="words-per-minute">Viteză: 0 WPM</div>
         </section>
     </main>
 

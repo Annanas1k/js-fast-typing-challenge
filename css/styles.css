@@ -6,108 +6,177 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* ===== Stilizare Navbar ===== */
-nav {
-    background-color: #34495e; /* Albastru închis mai mat */
-    color: white;
-    padding: 15px 20px;
+body {
+    background-color: #f5f7fa;
+    color: #333;
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Umbra subtilă */
+    flex-direction: column;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
 
-nav ul li {
-    display: inline;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    padding: 8px 15px;
-    transition: 0.3s;
-    border-radius: 5px; /* Colțuri rotunjite */
-}
-
-nav ul li a:hover {
-    background-color: #5c6bc0; /* Albastru mai deschis și mai mat */
-    color: #f2f2f2; /* Alb pentru un contrast mai bun */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Efect de ridicare */
-}
-
-/* ===== Stilizare Footer ===== */
-footer {
-    background-color: #2c3e50; /* Gri-albastru închis */
-    color: white;
+/* ===== Header ===== */
+header {
     text-align: center;
-    padding: 15px 0;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-#myname {
-    font-weight: bold;
+    padding: 30px 20px;
+    background-color: #4CAF50;
+    color: white;
+    margin-top: 0;
 }
 
-/* ===== Stilizare conținut ===== */
+header h1 {
+    font-size: 2.2em;
+    margin: 0;
+}
+
+/* ===== Container principal centrat ===== */
 main {
-    margin-top: 70px; /* Ca să nu fie acoperit de navbar */
-    padding: 20px;
-    text-align: center;
-    background-color: #ecf0f1; /* Gri deschis */
-    color: #333; /* Text închis pentru citire mai ușoară */
+    max-width: 800px;
+    width: 90%;
+    margin: 30px auto;
+    flex: 1;
 }
 
-/* ===== Stilizare Butoane ===== */
-button {
-    background-color: #3498db; /* Albastru calm */
+/* ===== Secțiunea intro ===== */
+#intro {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ===== Testul de tastare ===== */
+#test {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+#text-to-type {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#input-text {
+    width: 100%;
+    padding: 15px;
+    margin: 15px 0;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    resize: none;
+    min-height: 120px;
+    transition: all 0.3s;
+}
+
+#input-text:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* ===== Controale ===== */
+#controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 25px 0;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+#timer, #words-per-minute {
+    font-weight: bold;
+    font-size: 18px;
+    color: #2c3e50;
+}
+
+#timer {
+    color: #3498db;
+}
+
+#words-per-minute {
+    color: #27ae60;
+}
+
+#errors {
+    color: #e74c3c;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+#result {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+/* ===== Buton ===== */
+.btn-style {
+    background-color: #3498db;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 30px;
     font-size: 16px;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Umbra subtilă */
-}
-
-button:hover {
-    background-color: #2980b9; /* Albastru mai închis */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Efect de ridicare */
-}
-
-button:active {
-    background-color: #1f618d; /* Albastru foarte închis când este apăsat */
-}
-
-
-
-/* Stil pentru mesajul de erori */
-#error {
-    color: red;
+    transition: all 0.3s;
     font-weight: bold;
 }
 
-/* Stil pentru afișarea vitezei */
-#words-per-minute {
-    color: green;
-    font-weight: bold;
-    font-size: 18px;
+.btn-style:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Stil pentru afișarea erorilor */
-#errors {
-    color: red;
-    font-weight: bold;
-    font-size: 18px;
+.btn-style:active {
+    transform: translateY(0);
+}
+
+
+/* ===== Responsivitate ===== */
+@media (max-width: 768px) {
+    main {
+        width: 95%;
+        padding: 15px;
+    }
+    
+    #test {
+        padding: 20px;
+    }
+    
+    #controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    #start-button {
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    header h1 {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    #text-to-type, #input-text {
+        font-size: 15px;
+    }
+    
+    #timer, #words-per-minute, #errors {
+        font-size: 16px;
+    }
 }
