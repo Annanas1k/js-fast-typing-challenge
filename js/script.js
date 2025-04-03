@@ -5,6 +5,7 @@ let timerInterval;
 let wordsWritten = 0;
 let errors = 0;
 let isTestActive = false;
+const TEST_DURATION = 60; 
 
 // Încarcă fișierul JSON cu textele
 fetch('assets/texts.json')
@@ -48,11 +49,12 @@ function startTest() {
 
 function updateTimer() {
     const elapsedTime = Math.floor((new Date() - startTime) / 1000);
-    document.getElementById("timer").textContent = "⏱️ Timp: " + elapsedTime + "s";
+    const remainingTime = TEST_DURATION - elapsedTime;
     
-    // Verifică dacă textul a fost completat
-    const inputText = document.getElementById("input-text").value;
-    if (inputText === currentText) {
+    document.getElementById("timer").textContent = `⏱️ Timp: ${remainingTime}s`;
+    
+    // Oprește testul după 60 de secunde
+    if (elapsedTime >= TEST_DURATION) {
         clearInterval(timerInterval);
         finishTest(elapsedTime);
     }
@@ -60,12 +62,18 @@ function updateTimer() {
 
 function checkText() {
     const inputText = document.getElementById("input-text").value;
-    const correctText = currentText.substring(0, inputText.length);
+    const originalText = currentText;
     
-    // Verifică corectitudinea textului
+    // Resetăm numărul de erori
     errors = 0;
+    
+    // Compară caracterele introduse cu cele originale
     for (let i = 0; i < inputText.length; i++) {
-        if (inputText[i] !== currentText[i]) {
+        if (i >= originalText.length) {
+            // Caractere în plus față de textul original
+            errors++;
+        } else if (inputText[i] !== originalText[i]) {
+            // Caractere greșite
             errors++;
         }
     }
@@ -77,7 +85,7 @@ function checkText() {
     const elapsedMinutes = (new Date() - startTime) / (1000 * 60);
     const words = inputText.split(/\s+/).filter(word => word.length > 0).length;
     wordsWritten = words;
-    const wpm = Math.round(wordsWritten / elapsedMinutes);
+    const wpm = elapsedMinutes > 0 ? Math.round(wordsWritten / elapsedMinutes) : 0;
     document.getElementById("words-per-minute").textContent = "🚀 Viteză: " + wpm + " WPM";
 
     // Verifică dacă textul a fost completat
@@ -94,18 +102,20 @@ function finishTest(elapsedTime) {
     const accuracy = Math.round(((currentText.length - errors) / currentText.length) * 100);
     
     const elapsedMinutes = elapsedTime / 60;
-    const wpm = Math.round(correctWords / elapsedMinutes);
+    const wpm = elapsedMinutes > 0 ? Math.round(correctWords / elapsedMinutes) : 0;
     
     document.getElementById("result").innerHTML = `
-        <p>Test completat în ${elapsedTime} secunde!</p>
+        <p>Test ${elapsedTime >= TEST_DURATION ? 'terminat' : 'completat'} în ${elapsedTime} secunde!</p>
         <p>Viteză: ${wpm} WPM</p>
         <p>Precizie: ${accuracy}%</p>
         <p>Erori totale: ${errors}</p>
+        <p>Cuvinte corecte: ${correctWords}/${totalWords}</p>
     `;
     
     isTestActive = false;
     document.getElementById("start-button").textContent = "Start";
     document.getElementById("start-button").disabled = false;
+    document.getElementById("input-text").removeEventListener("input", checkText);
 }
 
 function resetTest() {
@@ -114,12 +124,13 @@ function resetTest() {
     
     document.getElementById("text-to-type").textContent = "Programarea este arta de a comunica cu un computer. Încearcă să tastezi acest text fără erori și cât mai rapid posibil!";
     document.getElementById("input-text").value = "";
-    document.getElementById("timer").textContent = "⏱️ Timp: 0s";
+    document.getElementById("timer").textContent = "⏱️ Timp: 60s";
     document.getElementById("errors").textContent = "❌ Erori: 0";
     document.getElementById("words-per-minute").textContent = "🚀 Viteză: 0 WPM";
     document.getElementById("result").textContent = "";
     document.getElementById("start-button").textContent = "Start";
     document.getElementById("start-button").disabled = false;
+    document.getElementById("input-text").removeEventListener("input", checkText);
     
     currentText = "";
     errors = 0;
