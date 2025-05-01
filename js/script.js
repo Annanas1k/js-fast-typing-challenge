@@ -5,8 +5,8 @@ let timerInterval;
 let wordsWritten = 0;
 let errors = 0;
 let isTestActive = false;
-//const TEST_DURATION = 61; 
-const TEST_DURATION = 10; 
+const TEST_DURATION = 61; 
+//const TEST_DURATION = 10; 
 
 
 // Încarcă fișierul JSON cu textele

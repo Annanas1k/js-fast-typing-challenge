@@ -9,19 +9,73 @@
 
 </head>
 <body>
+    <style>
+
+/* Conținutul principal */
+main {
+    padding: 30px 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.tip-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    height: auto;
+}
+
+.fact-text {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+#alt-text {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+#alt-text:hover {
+    background-color: #0056b3;
+}
+
+#alt {
+    font-size: 12px;
+}
+
+
+    </style>
 
     <!-- Bara de navigare -->
     <div id="navbar-container"></div>
 
     <!-- Conținutul principal al paginii -->
     <main>
-        <h1>Bine ai venit la Testul de Tastare!</h1>
-        <p>Aici poți verifica viteza ta de tastare.</p>
+        <div id="tip-container" class="tip-container">
+            <h1>Random useless Facts</h1>
+            <p id="useless-fact" class="fact-text">Se încarcă un fapt inutil...</p>
+            <button id="alt-text" class="btn">Afisează alt fact</button>
+            <br>
+            <br>
+            <p id="alt">(aici ar fi trebuit sa fie sfaturi pentu testare insa nu am gasit asa API)</p>
+        </div>
     </main>
 
     <!-- Footer -->
     <div id="footer-container"></div>
 
+    <script src="js/tips.js"></script>
     <script src="js/load-components.js"></script>
 </body>
 </html>
