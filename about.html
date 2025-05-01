@@ -6,7 +6,42 @@
     <title>Test de Tastare</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="assets/books.png">
+    <style>
+        main {
+            padding: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-family: Arial, sans-serif;
+        }
 
+        h1, h2, h3 {
+            color: #333;
+            margin-top: 1.5rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        code {
+            background: #eee;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        p {
+            margin-top: 1rem;
+        }
+
+        .section {
+            margin-top: 2rem;
+        }
+    </style>
 </head>
 <body>
 
@@ -15,8 +50,74 @@
 
     <!-- Conținutul principal al paginii -->
     <main>
-        <h1>Bine ai venit la Testul de Tastare!</h1>
-        <p>Aici poți verifica viteza ta de tastare.</p>
+        <h1>Test de Tastare</h1>
+        <p>
+            Această aplicație web este un test de tastare care ajută utilizatorii să își măsoare viteza de tastare în cuvinte pe minut (WPM) și precizia.
+            Aplicația furnizează un text aleatoriu de tastat, iar utilizatorii trebuie să tasteze textul corect într-un interval de timp dat (1 minut).
+            Testul urmărește și afișează erorile și viteza de tastare în timp real, iar la final, utilizatorul poate vedea statistici despre performanța sa.
+        </p>
+
+        <div class="section">
+            <h2>Funcționalități principale:</h2>
+            <ul>
+                <li><strong>Test de Tastare:</strong> Permite utilizatorilor să efectueze un test de tastare cu un timp de 1 minut.</li>
+                <li><strong>Calcularea Vitezei:</strong> Viteza de tastare este calculată în cuvinte pe minut (WPM).</li>
+                <li><strong>Monitorizarea Erorilor:</strong> Se afișează numărul de erori în timp real.</li>
+                <li><strong>Rezultate și Istoric:</strong> Se salvează viteza, precizia și erorile într-un istoric.</li>
+                <li><strong>Fapte Inutile:</strong> Se afișează un fapt inutil aleatoriu între teste.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Tehnologii utilizate:</h2>
+            <ul>
+                <li><strong>HTML:</strong> Structura paginii.</li>
+                <li><strong>CSS:</strong> Stilizarea paginii.</li>
+                <li><strong>JavaScript:</strong> Logica aplicației, calcul WPM, erori, etc.</li>
+                <li><strong>Local Storage:</strong> Salvarea rezultatelor testelor.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Cum să utilizezi aplicația:</h2>
+            <ol>
+                <li><strong>Clonare repo:</strong><br>
+                    <code>git clone &lt;repository-url&gt;</code>
+                </li>
+                <li><strong>Deschide aplicația:</strong><br>
+                    Deschide fișierul <code>index.html</code> în browserul tău preferat.
+                </li>
+                <li><strong>Fă un test:</strong><br>
+                    Apasă butonul „Start”, tastează cât mai rapid și precis.
+                </li>
+                <li><strong>Vezi istoricul testelor:</strong><br>
+                    Poți accesa o listă cu testele tale anterioare.
+                </li>
+                <li><strong>Șterge istoricul:</strong><br>
+                    Folosește butonul de ștergere dacă vrei să golești istoricul.
+                </li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2>Descriere detaliată a funcționalităților:</h2>
+            <h3>Test de Tastare:</h3>
+            <p>
+                Aplicația selectează un text aleatoriu din <code>texts.json</code> și îl afișează.
+                Utilizatorul trebuie să tasteze textul într-un interval de 60 de secunde.
+                Viteza (WPM) și erorile sunt afișate în timp real.
+            </p>
+
+            <h3>Calculul Vitezei și Preciziei:</h3>
+            <p>
+                La finalul testului, se calculează WPM (cuvinte pe minut) și precizia (caractere corecte din total).
+            </p>
+
+            <h3>Istoricul Testelor:</h3>
+            <p>
+                Rezultatele fiecărui test sunt salvate în <code>localStorage</code> și pot fi vizualizate ulterior împreună cu data, viteza și erorile.
+            </p>
+        </div>
     </main>
 
     <!-- Footer -->
